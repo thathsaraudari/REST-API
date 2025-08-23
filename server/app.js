@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const cohortRouter = require("./routes/cohorts.routes.js")
 const PORT = 5005;
 //const connectDB = require("./config/db.config");
 

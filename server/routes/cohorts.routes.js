@@ -68,7 +68,7 @@ router.patch("/api/cohorts/:id", async (req, res) => {
     const campusArr = campus.split(",")
 
     const updated = await CohortModel.findByIdAndUpdate(id, { 
-           cohortSlug, 
+        cohortSlug, 
         cohortName, 
         programArr, 
         formatArr, 
@@ -101,4 +101,4 @@ router.delete("/api/cohorts/:id", async (req, res) => {
   }
 })
 
-export default router
+module.exports = router;
