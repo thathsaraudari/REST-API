@@ -29,7 +29,7 @@ app.get("/docs", (req, res) => {
 
 //IMPORT ROUTES
 app.use("/cohort", cohortRouter);
-
+app.use("/api/students", studentRoutes);
 
 
 //GET all students from MongoDB
