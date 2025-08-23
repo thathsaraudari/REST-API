@@ -4,12 +4,15 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const cohortRouter = require("./routes/cohorts.routes.js")
+const studentRoutes = require("./routes/students.routes.js");
 const PORT = 5005;
 //const connectDB = require("./config/db.config");
 
 //IMPORT MODELS
 //const Cohort = require("./models/cohort.js");
 const Student = require("./models/students.js");
+
+
 
 //INITIALIZE EXPRESS APP - https://expressjs.com/en/4x/api.html#express
 const app = express();
