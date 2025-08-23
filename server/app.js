@@ -49,7 +49,10 @@ app.get("/api/students", async (req, res) => {
 });
 
 // START SERVER
+(async () => {
+  await connectDB();     
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
   connectDB();
 });
+})();

@@ -1,7 +1,6 @@
 const { Router } = require("express");
+const router = express.Router();
 const CohortModel = require("../models/cohort.js");
-
-const router = Router()
 
 router.post("/create", async (req, res) => {
   try {
