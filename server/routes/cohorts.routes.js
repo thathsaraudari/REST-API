@@ -1,20 +1,17 @@
 const { Router } = require("express");
-const router = express.Router();
+const router = Router();
 const CohortModel = require("../models/cohort.js");
 
-router.post("/create", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { cohortSlug, cohortName, program, format, campus, startDate, endDate, inProgress, programManager, leadTeacher, totalHours } = req.body
-    const programArr = program.split(",") //convert comma-separated strings into arrays
-    const formatArr = format.split(",")
-    const campusArr = campus.split(",")
 
     const created = await CohortModel.create({ 
         cohortSlug, 
         cohortName, 
-        programArr, 
-        formatArr, 
-        campusArr, 
+        program, 
+        format, 
+        campus, 
         startDate, 
         endDate, 
         inProgress, 
@@ -31,7 +28,7 @@ router.post("/create", async (req, res) => {
 });
 
 //GET all cohorts from MongoDB
-router.get("/api/cohorts", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const cohorts = await CohortModel.find(); // Retrieves all documents from the Cohorts collection.
     res.json(cohorts);

@@ -31,7 +31,7 @@ app.get("/docs", (req, res) => {
 });
 
 //IMPORT ROUTES
-app.use("/api/cohort", cohortRoutes);
+app.use("/api/cohorts", cohortRoutes);
 app.use("/api/students", studentRoutes);
 
 
