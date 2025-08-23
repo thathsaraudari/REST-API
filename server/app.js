@@ -28,7 +28,7 @@ app.get("/docs", (req, res) => {
 
 //IMPORT ROUTES
 app.use("/cohort", cohortRouter);
-
+const studentRoutes = require("./routes/students.routes.js");
 
 
 //GET all students from MongoDB
