@@ -3,7 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const cohortRouter = require("./routes/cohorts.routes.js")
+const cohortRoutes = require("./routes/cohorts.routes.js")
 const studentRoutes = require("./routes/students.routes.js");
 const PORT = 5005;
 //const connectDB = require("./config/db.config");
@@ -31,7 +31,7 @@ app.get("/docs", (req, res) => {
 });
 
 //IMPORT ROUTES
-app.use("/cohort", cohortRouter);
+app.use("/api/cohort", cohortRoutes);
 app.use("/api/students", studentRoutes);
 
 
