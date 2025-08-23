@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "cohort-tools-api",
   "version": "1.0.0",
   "description": "ExpressJS API for the Cohort Tools app",
