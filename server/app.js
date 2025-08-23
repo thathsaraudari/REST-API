@@ -7,7 +7,7 @@ const PORT = 5005;
 //const connectDB = require("./config/db.config");
 
 //IMPORT MODELS
-const Cohort = require("./models/cohort.js");
+//const Cohort = require("./models/cohort.js");
 const Student = require("./models/students.js");
 
 //INITIALIZE EXPRESS APP - https://expressjs.com/en/4x/api.html#express
@@ -26,18 +26,10 @@ app.get("/docs", (req, res) => {
   res.sendFile(__dirname + "/views/docs.html");
 });
 
-//GET all cohorts from MongoDB
-app.get("/api/cohorts", async (req, res) => {
-  try {
-    const cohorts = await Cohort.find(); // Retrieves all documents from the Cohorts collection.
-    res.json(cohorts);
-  } catch (err) {
-    res.status(500).json({
-      message: "Failed to get cohorts from the database",
-      error: err.message,
-    });
-  }
-});
+//IMPORT ROUTES
+app.use("/cohort", cohortRouter);
+
+
 
 //GET all students from MongoDB
 app.get("/api/students", async (req, res) => {
