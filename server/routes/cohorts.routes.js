@@ -42,7 +42,7 @@ router.get("/", async (req, res) => {
 
 
 //get one cohort from MongoDB
-router.get("/api/cohorts/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params
     const cohort = await CohortModel.findById(id)
@@ -55,7 +55,7 @@ router.get("/api/cohorts/:id", async (req, res) => {
 });
 
 //update cohort
-router.patch("/api/cohorts/:id", async (req, res) => {
+router.patch("/:id", async (req, res) => {
   try {
     const { cohortSlug, cohortName, program, format, campus, startDate, endDate, inProgress, programManager, leadTeacher, totalHours } = req.body
     const { id } = req.params
@@ -85,7 +85,7 @@ router.patch("/api/cohorts/:id", async (req, res) => {
 })
 
 
-router.delete("/api/cohorts/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params
     const cohortDeleted = await CohortModel.findByIdAndDelete(id)
