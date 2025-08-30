@@ -7,6 +7,8 @@ const cors = require("cors");
 //Import Routes
 const cohortRoutes = require("./routes/cohorts.routes.js");
 const studentRoutes = require("./routes/students.routes.js");
+const authRoutes = require("./routes/auth.routes.js");
+
 
 const PORT = 5005;
 
@@ -30,6 +32,7 @@ app.get("/docs", (req, res) => {
 
 app.use("/api/cohorts", cohortRoutes);
 app.use("/api/students", studentRoutes);
+app.use("/auth", authRoutes);
 
 // Middleware Error after routing
 app.use((err, req, res, next) => {
