@@ -7,19 +7,19 @@ const cohortSchema = new Schema(
     cohortName: { type: String, required: true },
 
     program: {
-      type: String,
+      type: [String],
       enum: ["Web Dev", "UX/UI", "Data Analytics", "Cybersecurity"],
       required: true,
     },
 
     format: {
-      type: String,
+      type: [String],
       enum: ["Full Time", "Part Time"],
       required: true,
     },
 
     campus: {
-      type: String,
+      type: [String],
       enum: [
         "Madrid",
         "Barcelona",
