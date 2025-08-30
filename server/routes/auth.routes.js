@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 const saltRounds = 10;
+const privateKey = '1r0Nh4cK';
 
 router.post("/signup", async (req, res, next) => {
   try {
@@ -41,15 +42,18 @@ router.post("/login", async (req, res) => {
 
     const match = await bcrypt.compare(password, user.password);
     if (!match) return res.status(401).json({ error: "Invalid credentials" });
-
+    console.log(process.env.TOKEN_SECRET);
     const token = jwt.sign(
       { id: user._id, email: user.email },
-      process.env.JWT_SECRET,
+      privateKey,
       { expiresIn: "7d" }
     );
 
+    
+
     res.json({ token });
   } catch (err) {
+    console.log(err);
     res.status(400).json({ error: "Login failed" });
   }
 });
@@ -61,7 +65,7 @@ router.get("/verify", (req, res) => {
     const token = auth.split(" ")[1];
     if (!token) return res.status(401).json({ error: "No token" });
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, privateKey);
     res.json({ valid: true, user: decoded });
   } catch (err) {
     res.status(401).json({ error: "Invalid token" });
