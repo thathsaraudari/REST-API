@@ -8,7 +8,7 @@ const cors = require("cors");
 const cohortRoutes = require("./routes/cohorts.routes.js");
 const studentRoutes = require("./routes/students.routes.js");
 const authRoutes = require("./routes/auth.routes.js");
-
+const userRoutes = require("./routes/user.routes.js");
 
 const PORT = 5005;
 
@@ -33,6 +33,7 @@ app.get("/docs", (req, res) => {
 app.use("/api/cohorts", cohortRoutes);
 app.use("/api/students", studentRoutes);
 app.use("/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 // Middleware Error after routing
 app.use((err, req, res, next) => {
